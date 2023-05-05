@@ -1,7 +1,7 @@
 {
   "name": "goit-js-hw-10",
   "version": "2.0.0",
-  "description": "",
+  "description": "goit-js-hw-10",
   "homepage": "https://vasylkivt.github.io/goit-js-hw-10",
   "scripts": {
     "start": "parcel src/*.html",
