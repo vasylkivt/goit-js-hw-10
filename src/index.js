@@ -20,15 +20,15 @@ inputSearchForCountry.addEventListener(
 );
 
 function onEnteringInput({ target: { value } }) {
+  if (value === '') {
+    countryList.innerHTML = '';
+    cornetCountryInfo.innerHTML = '';
+    return;
+  }
   if (!value.trim()) {
     countryList.innerHTML = '';
     cornetCountryInfo.innerHTML = '';
     Notify.failure('Рядок не може бути порожнім');
-    return;
-  }
-  if (value === '') {
-    countryList.innerHTML = '';
-    cornetCountryInfo.innerHTML = '';
     return;
   }
   if (value.length < 2) {
@@ -61,6 +61,8 @@ function onFetchSuccess(countries) {
 
 function onFetchError(error) {
   console.log(error);
+  countryList.innerHTML = '';
+  cornetCountryInfo.innerHTML = '';
   Notify.failure('На жаль, країни з такою назвою не існує');
 }
 
