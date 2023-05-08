@@ -20,6 +20,12 @@ inputSearchForCountry.addEventListener(
 );
 
 function onEnteringInput({ target: { value } }) {
+  if (!value.trim()) {
+    countryList.innerHTML = '';
+    cornetCountryInfo.innerHTML = '';
+    Notify.failure('Рядок не може бути порожнім');
+    return;
+  }
   if (value === '') {
     countryList.innerHTML = '';
     cornetCountryInfo.innerHTML = '';
@@ -29,12 +35,6 @@ function onEnteringInput({ target: { value } }) {
     countryList.innerHTML = '';
     cornetCountryInfo.innerHTML = '';
     Notify.info('Ведіть більше одного символа');
-    return;
-  }
-  if (!value.trim()) {
-    countryList.innerHTML = '';
-    cornetCountryInfo.innerHTML = '';
-    Notify.failure('Рядок не може бути порожнім');
     return;
   }
 
