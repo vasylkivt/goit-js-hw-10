@@ -60,10 +60,12 @@ function onFetchSuccess(countries) {
 }
 
 function onFetchError(error) {
-  console.log(error);
   countryList.innerHTML = '';
   cornetCountryInfo.innerHTML = '';
-  Notify.failure('На жаль, країни з такою назвою не існує');
+  if (error.message === '404') {
+    Notify.failure('На жаль, країни з такою назвою не існує');
+  }
+  console.log(error);
 }
 
 function renderCountriesList(countries) {
